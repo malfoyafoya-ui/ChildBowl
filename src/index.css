@@ -1,0 +1,50 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Be Vietnam Pro", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Plus Jakarta Sans", sans-serif;
+  
+  --color-brand-surface: #fbf9f8;
+  --color-brand-primary: #006e1c;
+  --color-brand-primary-light: #4caf50;
+  --color-brand-secondary: #8b5000;
+  --color-brand-accent: #ff9800;
+}
+
+/* Custom shadow tinted with primary green */
+.meal-card-shadow {
+  box-shadow: 0px 4px 20px rgba(0, 110, 28, 0.05);
+}
+
+.swap-animation {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.active-press:active {
+  transform: scale(0.96);
+  transition: transform 0.1s ease-in-out;
+}
+
+@keyframes bubbleMove {
+  from { transform: translate(0, 0); }
+  to { transform: translate(20px, 20px); }
+}
+
+.animate-bubble {
+  position: relative;
+  overflow: hidden;
+}
+
+.animate-bubble::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.15) 10%, transparent 20%);
+  background-size: 20px 20px;
+  animation: bubbleMove 8s linear infinite;
+  pointer-events: none;
+}
+
